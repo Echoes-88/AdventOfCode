@@ -1,0 +1,19 @@
+{
+    "name": "tsnode",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "build": "yarn clean && tsc && mkdir dist/data && yarn copy-files",
+        "dev": "concurrently -k -n \"Typescript,Node\" -p \"[{name}]\" -c \"blue,green\" \"tsc --watch\" \"nodemon dist/index.js\"",
+        "start": "yarn build && node dist/day04.js",
+        "clean": "rm -rf ./dist",
+        "copy-files": "cp ./src/data/* ./dist/data/"
+    },
+    "dependencies": {
+        "binary-to-decimal": "^1.0.9"
+    },
+    "devDependencies": {
+        "@types/node": "^17.0.0"
+    }
+}
